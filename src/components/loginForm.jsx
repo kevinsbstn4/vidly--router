@@ -1,14 +1,22 @@
 import React, { Component } from "react";
+import Input from "./common/input";
 
 class LoginForm extends Component {
   state = {
-    account: { username: "", password: "" }
+    account: { username: "", password: "" },
+    errors: {}
+  };
+
+  validate = () => {
+    return { username: "Username is Required" };
   };
 
   handleSubmit = e => {
     e.preventDefault();
 
-    const username = this.username.current.value;
+    const errors = this.validate();
+    this.setState({ errors });
+    if (errors) return;
     console.log("Submitted");
   };
 
@@ -19,6 +27,7 @@ class LoginForm extends Component {
   };
 
   render() {
+    const { account } = this.state;
     return (
       <div>
         <h1>Login</h1>
