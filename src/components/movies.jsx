@@ -76,10 +76,6 @@ class Movies extends Component {
     const movies = paginate(sorted, currentPage, pageSize);
 
     return { totalCount: filtered.length, data: movies };
-    // const filtered =
-    //   selectedGenre && selectedGenre._id
-    //     ? allMovies.filter(m => m.genre._id === selectedGenre._id)
-    //     : allMovies;
   };
 
   render() {
